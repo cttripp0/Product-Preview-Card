@@ -1,0 +1,113 @@
+/* Table of Contents
+1. Global Styles
+2. Typography
+3. Layout
+4. Resued Components
+*/
+
+/* 1. Global Styles */
+body {
+    font-family: "Montserrat";
+    background-color: hsl(30, 38%, 92%)
+}
+
+/* 2. Typography */
+
+.card__text--category {
+    color: hsl(228, 12%, 48%);
+    letter-spacing: 3px;
+
+}
+
+.card__text--title {
+    color: hsl(212, 21%, 14%);
+    font-size: 30px;
+    font-weight: 700;
+    font-family: "Fraunces";
+}
+
+.card__text--description {
+    color: hsl(228, 12%, 48%);
+    font-size: 14px;
+}
+
+.card__price--sale{
+font-family: "Fraunces";
+color: hsl(158, 36%, 37%);
+font-weight: 700;
+font-size: 30px
+}
+
+.card__price--strikethrough{
+    color:hsl(228, 12%, 48%);
+    font-size: 10px
+}
+
+/* 3. Layout */
+
+/* 3.1 -- Product Card */
+.card__wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    height: 500px;
+    border-radius: 20px;
+    overflow:hidden
+}
+
+/* 3.2 -- Card Left */
+
+.card__left {
+    width: 333.333px;
+    height: auto;
+}
+
+.card__image {
+    width: inherit;
+}
+
+/* 3.3 -- Card Right */
+
+.card__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    padding: 20px 30px;
+    background-color: white;
+}
+
+.card__price {
+    display: flex;
+    align-items: center;
+    gap: 15px
+}
+
+.card__price--strikethrough {
+    text-decoration: line-through;
+}
+
+.card__cart-btn {
+    background-color: hsl(158, 36%, 37%);
+    padding: 10px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 15px
+}
+
+.card__cart-btn:hover {
+    background-color: hsl(158, 42%, 18%);
+}
+
+.cart__text {
+    color: hsl(30, 38%, 92%)
+}
+
+/* 4. Reused Components */
