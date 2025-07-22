@@ -33,9 +33,11 @@
 
   <div class="card__wrapper">
     <div class="card">
-      <div class="card__left">
+      <picture class="card__left">
+        <source media="(max-width: 970px)" srcset="images/image-product-mobile.jpg">
+        <source media="(min-width: 971px)" srcset="images/image-product-desktop.jpg">
         <img src="images/image-product-desktop.jpg" class="card__image">
-      </div>
+      </picture>
       <div class="card__right--wrapper">
         <div class="card__right">
           <div class="card__text">
