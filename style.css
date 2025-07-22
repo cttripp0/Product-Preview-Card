@@ -8,7 +8,7 @@
 
 /* 1. Global Styles */
 body {
-    background-color: hsl(30,38%,92%);
+    background-color: hsl(30, 38%, 92%);
 }
 
 /* 2. Typography */
@@ -22,18 +22,21 @@ body {
 .card__text--category {
     letter-spacing: 2px;
     font-family: 'Montserrat', sans-serif;
+    font-size: clamp(.7rem, 2vw, 1rem);
 }
 
 .card__text--title {
     color: hsl(212, 21%, 14%);
     font-family: "Fraunces", sans-serif;
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 2.5vw, 3rem);
     font-weight: 700;
 }
 
 .card__text--description {
     font-family: "Montserrat", sans-serif;
+    font-size: clamp(.7rem, 2vw, 1rem);
 }
+
 
 .card__price--sale {
     color: hsl(158, 36%, 37%);
@@ -54,7 +57,7 @@ body {
 }
 
 .card__cart-btn:hover {
-    background-color: hsl(158, 42%, 18%) ;
+    background-color: hsl(158, 42%, 18%);
 }
 
 .card__cart-text {
@@ -79,7 +82,8 @@ body {
 
 .card {
     flex-basis: 55%;
-    max-width: 55%;
+    max-width: 40%;
+    max-height: 60%;
     margin-inline: auto;
     border-radius: 25px;
     display: flex;
@@ -88,7 +92,7 @@ body {
 
 /* 3.2 -- Card Left */
 .card__left {
-    flex: 45;
+    flex: 1;
 }
 
 .card__image {
@@ -99,11 +103,12 @@ body {
 
 /* 3.3 -- Card Right */
 .card__right--wrapper {
-    flex: 55;
+    flex: 1;
 }
 
 .card__right {
     padding: 7%;
+    padding-right: 10%;
     height: 100%;
     background-color: white;
 }
@@ -113,7 +118,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .card__right p {
@@ -142,22 +147,59 @@ body {
 
 /* 4. Reused Components */
 
-@media (max-width:920px){
-    .card{
+@media (min-width:970px) and (max-width:1250px) {
+
+    .card__price {
+        display: flex;
+        flex-direction: column;
+        gap: .25rem;
+    }
+}
+
+@media (max-width:970px) {
+    .card {
         flex-direction: column;
         max-height: 55%;
+        max-width: 80%;
+        overflow: visible;
     }
 
-    .card > *{
+    .card>* {
         min-height: 0;
     }
-.card__right--wrapper{
-    
+
+    .card__image {
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+        display: block;
+    }
+
+    .card__right {
+        border-bottom-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+    }
+
+    .card__price {
+        justify-content: center;
+        font-size: clamp(.70rem, 2vw, 4rem);
+        gap: clamp(.35rem, 2vw, 1.5rem);
+    }
+
+    .card__price--sale {
+        font-size: 2.5em;
+    }
+
+    .card__price--strikethrough {
+        font-size: .75em;
+    }
+
+    .card__cart-text {
+        font-size: clamp(.8rem, 2vw, 1rem);
+    }
+
+    .card__cart-btn {
+        gap: clamp(.35rem, 2vw, 1.5rem);
+
+    }
+
 }
-    .card__left {
-    }
-
-    .card__right{
-
-    }
-    }
