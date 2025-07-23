@@ -1,17 +1,49 @@
-/* Table of Contents
-1. Global Styles
-2. Typography
-3. Layout
-    /* 3.1 -- Product Card */
-/* 3.2 -- Card Left */
-/* 3.3 -- Card Right */
+/* ==============================
+1  Global Styles 
+==============================*/
 
-/* 1. Global Styles */
+
+/* ==============================
+2.  Typography 
+==============================*/ 
+
+
+/* ==============================
+3. Layout 
+       3.1  Product Card
+       3.2  Card Left 
+       3.3  Card Right 
+==============================*/
+
+
+/* ==============================
+4. Media Queries
+==============================*/
+
+/* ==============================
+1  Global Styles 
+==============================*/
 body {
     background-color: hsl(30, 38%, 92%);
 }
 
-/* 2. Typography */
+:root {
+    --clr-black: hsl(212, 21%, 14%);
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-gray: hsl(228, 12%, 48%);
+    --clr-cream: hsl(30, 38%, 92%);
+    --clr-lightgreen: hsl(158, 36%, 37%);
+    --clr-darkgreen: hsl(158, 42%, 18%);
+    --round-edges: 25px;
+    --font-size-s: .75em;
+    --font-size-m: 1em;
+    --font-size-l: 2.1em;
+    --font-size-xl: 2.5em;
+}
+
+/* ==============================
+2  Typography 
+==============================*/
 
 .card__text--category,
 .card__text--description,
@@ -19,57 +51,74 @@ body {
     color: hsl(228, 12%, 48%);
 }
 
+.card__text--category,
+.card__text--description,
+.card__cart-text {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card__text--title,
+.card__price--sale,
+.card__price--strikethrough {
+    font-family: "Fraunces", sans-serif;
+}
+
+.card__text--title,
+.card__price--sale {
+    font-weight: 700;
+}
+
+.card__text {
+    font-size: clamp(.7rem, 2vw, 1rem);
+}
+
 .card__text--category {
     letter-spacing: 2px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(.7rem, 2vw, 1rem);
+    font-size: var(--font-size-m);
 }
 
 .card__text--title {
-    color: hsl(212, 21%, 14%);
-    font-family: "Fraunces", sans-serif;
-    font-size: clamp(1.4rem, 2.5vw, 3rem);
-    font-weight: 700;
+    color: var(--clr-black);
+    font-size: var(--font-size-l);
 }
 
 .card__text--description {
-    font-family: "Montserrat", sans-serif;
-    font-size: clamp(.7rem, 2vw, 1rem);
+    font-size: var(--font-size-m);
 }
 
-
 .card__price--sale {
-    color: hsl(158, 36%, 37%);
+    color: var(--clr-lightgreen);
     font-size: 2.5rem;
-    font-weight: 700;
-    font-family: "Fraunces", sans-serif;
 }
 
 .card__price--strikethrough {
     text-decoration: line-through;
-    font-family: "Fraunces", sans-serif;
-    font-size: .75rem;
+    font-size: var(--font-size-s)
 }
 
 .card__cart-btn {
-    background-color: hsl(158, 36%, 37%);
+    background-color: var(--clr-lightgreen);
     border-radius: 10px;
 }
 
 .card__cart-btn:hover {
-    background-color: hsl(158, 42%, 18%);
+    background-color: var(--clr-darkgreen);
 }
 
 .card__cart-text {
     color: white;
-    font-family: "Montserrat", sans-serif;
     padding: 1rem;
 
 }
 
-/* 3. Layout */
+/*==============================
+ 3  Layout 
+ ==============================*/
 
-/* 3.1 -- Product Card */
+
+/*==============================
+ 3.1  Product Card 
+ ==============================*/
 * {
     box-sizing: border-box;
 }
@@ -81,27 +130,33 @@ body {
 }
 
 .card {
-    flex-basis: 55%;
     max-width: 40%;
-    max-height: 60%;
     margin-inline: auto;
-    border-radius: 25px;
+    border-radius: var(--round-edges);
     display: flex;
-    overflow: hidden;
 }
 
-/* 3.2 -- Card Left */
+
+/*==============================
+3.2  Card Left 
+==============================*/
 .card__left {
     flex: 1;
+
 }
 
 .card__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-bottom-left-radius: var(--round-edges);
+    border-top-left-radius: var(--round-edges);
 }
 
-/* 3.3 -- Card Right */
+
+/*==============================
+ 3.3  Card Right 
+ ==============================*/
 .card__right--wrapper {
     flex: 1;
 }
@@ -110,7 +165,9 @@ body {
     padding: 7%;
     padding-right: 10%;
     height: 100%;
-    background-color: white;
+    background-color: var(--clr-white);
+    border-top-right-radius: var(--round-edges);
+    border-bottom-right-radius: var(--round-edges);
 }
 
 .card__right,
@@ -141,64 +198,84 @@ body {
 .card__price {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: 1.5rem;
 }
 
 
-/* 4. Reused Components */
+/*==============================
+ 4. Media Queries
+ ==============================*/
+@media (min-width:1600px) {
+    .card {
+        max-width: 25%;
+    }
+        .card__price {
+        font-size: clamp(.4rem, 2vw, 1.3rem);
+        gap: clamp(.35rem, 2vw, 1.5rem);
+    }
 
-@media (min-width:970px) and (max-width:1250px) {
+    .card__price--sale {
+        font-size: var(--font-size-l);
+    }
+
+    .card__price--strikethrough {
+        font-size: var(--font-size-s);
+    }
+}
+
+@media (max-width:1600px) {
 
     .card__price {
-        display: flex;
         flex-direction: column;
         gap: .25rem;
     }
 }
 
-@media (max-width:970px) {
+@media (max-width:970px) and (orientation: portrait) {
     .card {
         flex-direction: column;
-        max-height: 55%;
-        max-width: 80%;
-        overflow: visible;
+        min-width: 45%;
     }
 
-    .card>* {
-        min-height: 0;
-    }
-
+    .card__right,
     .card__image {
-        border-top-right-radius: 25px;
-        border-top-left-radius: 25px;
-        display: block;
+        border-radius: 0;
+
     }
 
     .card__right {
-        border-bottom-right-radius: 25px;
-        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: var(--round-edges);
+        border-bottom-left-radius: var(--round-edges);
     }
 
+    .card__image {
+        border-radius: 0;
+        border-top-right-radius: var(--round-edges);
+        border-top-left-radius: var(--round-edges);
+        display: block;
+    }
+
+
     .card__price {
-        justify-content: center;
-        font-size: clamp(.70rem, 2vw, 4rem);
+        font-size: clamp(.5rem, 2vw, 1rem);
         gap: clamp(.35rem, 2vw, 1.5rem);
     }
 
     .card__price--sale {
-        font-size: 2.5em;
+        font-size: var(--font-size-l);
     }
 
     .card__price--strikethrough {
-        font-size: .75em;
+        font-size: var(--font-size-m);
     }
 
     .card__cart-text {
-        font-size: clamp(.8rem, 2vw, 1rem);
+        font-size: clamp(.5rem, 2vw, var(--font-size-m));
     }
 
     .card__cart-btn {
-        gap: clamp(.35rem, 2vw, 1.5rem);
+        gap: clamp(.35rem, 2vw, 1rem);
 
     }
 
